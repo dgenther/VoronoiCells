@@ -47,9 +47,12 @@ class vec2:
             return vec2((self.x - val, self.y - val))
         else:
             raise ValueError("Invalid arguments for vec2 subtraction. Only vec2, float and int allowed.")
+        
+    def magnitude(self):
+        return sqrt(self.x ** 2 + self.y ** 2)
 
     def normalized(self):
-        magnitude = sqrt(self.x ** 2 + self.y ** 2)
+        magnitude = self.magnitude()
         if magnitude == 0:
             magnitude = 1e-9
         self.norm_x = float(self.x / magnitude)
